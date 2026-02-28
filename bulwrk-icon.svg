@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C2FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0077CC;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer shield: Sir Duncan style - flat top, straight sides, pointed bottom -->
+  <path d="M12 8 L88 8 L88 62 Q88 80 50 95 Q12 80 12 62 Z"
+    fill="url(#shieldGrad)" filter="url(#glow)"/>
+
+  <!-- Inner cutout - dark -->
+  <path d="M19 15 L81 15 L81 61 Q81 75 50 88 Q19 75 19 61 Z"
+    fill="#0D0F14"/>
+
+  <!-- Inner detail - straight right edge, curved left following shield -->
+  <path d="M50 23
+    L50 83
+    Q33 73 26 60
+    L26 28
+    Q36 22 50 23
+    Z"
+    fill="url(#shieldGrad)" opacity="0.95"/>
+
+  <!-- Straight divider line on the right of the detail -->
+  <line x1="50" y1="23" x2="50" y2="83" stroke="#0D0F14" stroke-width="4"/>
+
+</svg>

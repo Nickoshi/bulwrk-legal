@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms and Conditions — Bulwrk</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #1c2330;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #7d8590;
+      --accent: #2dd4bf;
+      --accent2: #0e9488;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Background subtle grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #0d1117;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .logo-name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 48px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    /* Table of contents */
+    .toc {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    @media (max-width: 500px) {
+      .toc-list { grid-template-columns: 1fr; }
+    }
+
+    .toc-list a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .toc-list a:hover { color: var(--accent); }
+
+    .toc-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      min-width: 20px;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      min-width: 28px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .section p {
+      color: #adb5bd;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 8px;
+    }
+
+    .section ul li {
+      color: #adb5bd;
+      font-size: 15px;
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+
+    .section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* Callout box */
+    .callout {
+      background: rgba(45, 212, 191, 0.06);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: #adb5bd;
+    }
+
+    .callout strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 16px;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    .back-top {
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-top:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper" id="top">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">B</div>
+      <span class="logo-name">BULWRK</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Terms and <span>Conditions</span></h1>
+    <div class="meta">
+      <span class="meta-item">Effective: February 28, 2026</span>
+      <span class="meta-item">Last Updated: February 28, 2026</span>
+    </div>
+  </div>
+
+  <!-- Table of Contents -->
+  <nav class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">01</span> Acceptance of Terms</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span> About Bulwrk</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span> User Accounts</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span> Use of the App</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span> User-Generated Content</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span> AI Advisor</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span> Free Service</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span> Data Privacy</a></li>
+      <li><a href="#s9"><span class="toc-num">09</span> Data Security</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span> Account Termination</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span> Limitation of Liability</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span> Disclaimer of Warranties</a></li>
+      <li><a href="#s13"><span class="toc-num">13</span> Changes to These Terms</a></li>
+      <li><a href="#s14"><span class="toc-num">14</span> Governing Law</a></li>
+      <li><a href="#s15"><span class="toc-num">15</span> Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sections -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Acceptance of Terms</h2>
+    </div>
+    <p>By creating an account and using Bulwrk ("the App"), you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the App.</p>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>About Bulwrk</h2>
+    </div>
+    <p>Bulwrk is a free personal finance tracking application that helps users manage their transactions, budgets, goals, and financial insights through AI-powered tools. Bulwrk is owned and operated by <strong>Nick Andrei Osorio</strong>.</p>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>User Accounts</h2>
+    </div>
+    <ul>
+      <li>You must provide accurate information when creating an account.</li>
+      <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+      <li>You are responsible for all activity that occurs under your account.</li>
+      <li>You must be at least 18 years old to use the App, or have parental consent if you are a minor.</li>
+      <li>We reserve the right to suspend or terminate accounts that violate these Terms.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Use of the App</h2>
+    </div>
+    <p>You agree to use Bulwrk only for its intended purpose of personal finance tracking. You agree not to:</p>
+    <ul>
+      <li>Use the App for any illegal or unauthorized purpose</li>
+      <li>Attempt to gain unauthorized access to any part of the App or its database</li>
+      <li>Upload malicious code, viruses, or harmful content</li>
+      <li>Misrepresent your identity or impersonate another person</li>
+      <li>Use the App to harm, harass, or deceive other users</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>User-Generated Content</h2>
+    </div>
+    <p>You may input financial data, transactions, notes, and other content into the App. You retain ownership of your data. By using the App, you grant Bulwrk a limited license to store and process your data solely for the purpose of providing the service to you.</p>
+    <p>We do not claim ownership of any content you create or upload.</p>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>AI Advisor</h2>
+    </div>
+    <p>Bulwrk includes an AI-powered financial advisor feature. Please note:</p>
+    <ul>
+      <li>AI-generated insights and suggestions are for informational purposes only</li>
+      <li>They do not constitute professional financial, investment, or legal advice</li>
+      <li>You should consult a qualified financial professional before making significant financial decisions</li>
+      <li>Bulwrk is not responsible for any financial decisions made based on AI-generated content</li>
+    </ul>
+    <div class="callout">
+      <strong>Important:</strong> The AI Advisor is a tool to help you understand your finances — not a substitute for professional financial advice.
+    </div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Free Service</h2>
+    </div>
+    <p>Bulwrk is currently provided free of charge. We reserve the right to introduce paid features or subscription plans in the future, with advance notice to users. Your continued use of the App after such changes constitutes acceptance of the new terms.</p>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Data Privacy</h2>
+    </div>
+    <p>Your use of Bulwrk is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using the App, you consent to the collection and processing of your personal data as described in our Privacy Policy, in accordance with the <strong>Philippine Data Privacy Act of 2012 (Republic Act 10173)</strong>.</p>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Data Security</h2>
+    </div>
+    <p>We take reasonable measures to protect your personal and financial data. However, no method of data transmission or storage is 100% secure. We cannot guarantee absolute security and are not liable for unauthorized access resulting from circumstances beyond our reasonable control.</p>
+  </section>
+
+  <section class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Account Termination</h2>
+    </div>
+    <p>You may delete your account at any time through the Settings page. Upon deletion, your personal data will be removed from our systems in accordance with our Privacy Policy.</p>
+    <p>We reserve the right to suspend or terminate your account without prior notice if you violate these Terms.</p>
+  </section>
+
+  <section class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Limitation of Liability</h2>
+    </div>
+    <p>To the fullest extent permitted by law, Bulwrk and Nick Andrei Osorio shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App, including but not limited to financial losses, data loss, or service interruptions.</p>
+  </section>
+
+  <section class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>Disclaimer of Warranties</h2>
+    </div>
+    <p>Bulwrk is provided "as is" without warranties of any kind, either express or implied. We do not warrant that the App will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+  </section>
+
+  <section class="section" id="s13">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>Changes to These Terms</h2>
+    </div>
+    <p>We may update these Terms and Conditions from time to time. We will notify users of significant changes via the App or by email. Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+  </section>
+
+  <section class="section" id="s14">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <h2>Governing Law</h2>
+    </div>
+    <p>These Terms and Conditions are governed by and construed in accordance with the laws of the <strong>Republic of the Philippines</strong>. Any disputes arising from these Terms shall be subject to the jurisdiction of the appropriate courts in the Philippines.</p>
+  </section>
+
+  <section class="section" id="s15">
+    <div class="section-header">
+      <span class="section-num">15</span>
+      <h2>Contact Us</h2>
+    </div>
+    <p>If you have any questions or concerns about these Terms and Conditions, please contact us at:</p>
+    <ul>
+      <li>Email: <a href="mailto:Nickos@bulwrk.com" style="color: var(--accent); text-decoration: none;">Nickos@bulwrk.com</a></li>
+      <li>App: Bulwrk</li>
+      <li>Owner: Nick Andrei Osorio</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Bulwrk · <a href="mailto:Nickos@bulwrk.com">Nickos@bulwrk.com</a></p>
+    <a href="#top" class="back-top">↑ Back to top</a>
+  </footer>
+
+</div>
+</body>
+</html>
